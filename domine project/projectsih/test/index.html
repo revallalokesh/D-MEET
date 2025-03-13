@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet"> 
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    
+</head>
+<body>
+    
+        <div class="navbar">
+            <div class="icon">
+                
+                <h2 class="logo" > D-<span class="hii">Meet</span></h2>
+            
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#" style="--i:2">HOME</a></li>
+                    <li><a href="#" style="--i:3">ABOUT</a></li>
+                    <li><a href="#" style="--i:4">SERVICE</a></li>
+                    <li><a href="#" style="--i:5">CONTACT</a></li> 
+                </ul>
+            </div>
+            <div class="search">
+                <input class="srch" type="search" name="" placeholder="type text here">
+                <a href="#"><button class="btn">Search</button></a> 
+            </div> 
+        </div>
+        <div>
+            <pre>
+                <div class="meet">
+                    
+                    <h1> Welcome To <span class="text"></span></h1>
+                </div>
+            </pre>
+        </div>
+<section>
+        <div class="con">
+            
+
+            <video autoplay loop muted plays-inline class="background-clip">
+                <source src="blockvideo.mp4" type="video/mp4">
+            </video>
+            <!-- <div class="content">
+                <h1>Explore More</h1>
+                
+            </div> -->
+    
+        </div>
+</section>
+        <div class="man">
+            <a href="main.html">
+            <button class="button"> JOIN MEETING</button>
+            </a>
+        &nbsp;
+            <a href="create_meeting.html">
+                <button class="button">CREATE MEETING</button>
+                </a>
+            </div>
+        
+            <button id="endMeeting" style="display: none;">End Meeting</button>
+        
+            <div id="meetingContainer" style="display: none;">
+                <p>Meeting content goes here...</p>
+            </div>
+
+            <script>
+                // Simulate joining the meeting
+                document.getElementById('joinMeeting').addEventListener('click', function () {
+                    document.getElementById('joinMeeting').style.display = 'none';
+                    document.getElementById('endMeeting').style.display = 'block';
+                    document.getElementById('meetingContainer').style.display = 'block';
+                });
+        
+                // Simulate ending the meeting
+                document.getElementById('endMeeting').addEventListener('click', function () {
+                    document.getElementById('joinMeeting').style.display = 'block';
+                    document.getElementById('endMeeting').style.display = 'none';
+                    document.getElementById('meetingContainer').style.display = 'none';
+                });
+            </script>
+<body>
+    <div class="par">
+        <p>
+            Experience secure and immutable online meetings with our cutting-edge blockchain-integrated platform. 
+            Harnessing the power of blockchain, we ensure the utmost security and integrity of your meeting recordings.
+            Each recording undergoes cryptographic hashing and is stored across a decentralized network of nodes,
+            eliminating vulnerabilities associated with centralized storage systems. Our decentralized approach guarantees 
+            tamper-resistance and protects against unauthorized alterations, providing you with complete peace of mind regarding 
+            the authenticity of your meeting data.
+        </p>
+    </div>
+
+<script src="login.js"></script>
+<section>
+    <div class="services" id="services">
+        <div class="container">
+            <h1 class="sub-title">My<span>services</span></h1>
+            <div class="service-list"> 
+            <div>
+                 <i class='bx bx-video' style='color:#00eeff'></i>
+                 <h2>WEB RTC</h2>
+                 <p>WebRTC (Web Real-Time Communication) is a free, open-source project that enables real-time communication of audio, video, and data in web browsers and mobile applications without requiring additional plugins or software. It uses JavaScript APIs and peer-to-peer connections to facilitate direct communication between browsers, allowing for applications like video conferencing, online gaming, and file sharing.</p>
+                     <a href="#" class="read">learn more</a>
+            </div>
+            <div>
+                <i class='bx bx-hash' style='color:#00eeff'></i>
+                <h2>IPFS HASH</h2>
+                <p>IPFS (InterPlanetary File System) allows conversion of video files into a unique cryptographic hash, serving as a content identifier. Through IPFS, a video file is broken into chunks and each chunk is assigned a hash, forming a Merkle DAG (Directed Acyclic Graph). The resulting hash represents the entire video, enabling decentralized storage and retrieval without reliance on traditional servers.</p>
+                    <a href="#" class="read">learn more</a>
+           </div>
+            <div> 
+                <i class='bx bxs-barcode' style='color:#00eeff'></i>
+                <h2>BLOCK CHAIN</h2>
+                <p>Storing IPFS hash links in a blockchain provides a secure and immutable record of the content's existence and ownership. By anchoring the hash in the blockchain, it becomes resistant to tampering or deletion, enhancing trust and verifiability. This approach ensures decentralized, permanent storage of data references, with blockchain acting as a decentralized ledger for tracking content integrity and ownership.</p>
+                    <a href="#" class="read">learn more</a>
+           </div>
+           </div>
+        </div>
+    </div>
+</section>
+</body>
+<footer>
+    <div class="footer">
+    <div class="row">
+    <a href="#"><i class="fa fa-facebook"></i></a>
+    <a href="#"><i class="fa fa-instagram"></i></a>
+    <a href="#"><i class="fa fa-youtube"></i></a>
+    <a href="#"><i class="fa fa-twitter"></i></a>
+    </div>
+    
+    <div class="row">
+    <ul>
+    <li><a href="#">Contact us</a></li>
+    <li><a href="#">Our Services</a></li>
+    <li><a href="#">Privacy Policy</a></li>
+    <li><a href="#">Terms & Conditions</a></li>
+    <li><a href="#">Career</a></li>
+    </ul>
+    </div>
+    
+    <div class="row">
+    BLOCKMEET Copyright ©️ 2021 Inferno - All rights reserved || Designed By: Lokesh 
+    </div>
+    </div>
+    </footer>
+    <script src="index.js"></script>
+</html>

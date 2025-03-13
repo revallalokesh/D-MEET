@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Meeting</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="conference.css">
+</head>
+<body>
+    <center>
+        <h1 style="color:rgb(254, 251, 251)">Online Meeting</h1>
+        <div>
+            <button id="startVideo">
+                <img src="startvideo_icon.jpeg" alt="G" style="height: 0.3cm; width: 0.3cm;">
+                Start Video</button>
+            <button id="stopVideo">
+                <img src="stopvideo2.jpeg" alt="G" style="height: 0.4cm; width: 0.4cm;">
+                Stop Video</button>
+            <button id="startAudio">
+                <img src="speaker.jpeg" alt="G" style="height: 0.3cm; width: 0.3cm;">
+                Start Audio</button>
+            <button id="stopAudio">
+                <img src="stop_speaker.jpeg" alt="G" style="height: 0.3cm; width: 0.3cm;">
+                Stop Audio</button>
+            <button id="record">
+                <img src="start.png" alt="G" style="height: 0.3cm; width: 0.3cm;">
+                Start Recording</button>
+            <button id="stopRecord">
+                <img src="stop (1).png" alt="G" style="height: 0.3cm; width: 0.3cm;">
+                Stop Recording</button>
+            <button id="Chat">
+                <img src="chatting.jpeg" alt="G" style="height: 0.3cm; width: 0.3cm;">
+                <a href="test3.html">Chat Here</a>
+            </button>
+        </div>
+        <div id="videoContainer">
+            <video id="localVideo" autoplay playsinline></video>
+            <video id="remoteVideo" autoplay playsinline></video>
+        </div>
+    </center>
+    <script>
+        const localVideo = document.getElementById('localVideo');
+        let localStream;
+        let isRecording = false;
+        let mediaRecorder;
+
+        async function startVideo() {
+            try {
+                localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+                localVideo.srcObject = localStream;
+            } catch (error) {
+                console.error('Error accessing video:', error);
+            }
+        }
+
+        async function stopVideo() {
+            if (localStream) {
+                localStream.getTracks().forEach(track => {
+                    if (track.kind === 'video') {
+                        track.stop();
+                    }
+                });
+                localStream = null;
+                localVideo.srcObject = null;
+            }
+        }
+
+        async function startAudio() {
+            try {
+                localStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                localVideo.srcObject = localStream;
+            } catch (error) {
+                console.error('Error accessing audio:', error);
+            }
+        }
+
+        async function stopAudio() {
+            if (localStream) {
+                localStream.getTracks().forEach(track => {
+                    if (track.kind === 'audio') {
+                        track.stop();
+                    }
+                });
+                localStream = null;
+                localVideo.srcObject = null;
+            }
+        }
+
+        function startRecording() {
+            if (localStream) {
+                mediaRecorder = new MediaRecorder(localStream);
+                const chunks = [];
+
+                mediaRecorder.ondataavailable = event => {
+                    if (event.data.size > 0) {
+                        chunks.push(event.data);
+                    }
+                };
+
+                mediaRecorder.onstop = () => {
+                    const recordedBlob = new Blob(chunks, { type: 'video/webm' });
+                    const url = URL.createObjectURL(recordedBlob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'recording.webm';
+                    a.click();
+                    isRecording = false;
+                };
+
+                mediaRecorder.start();
+                isRecording = true;
+            }
+        }
+
+        function stopRecording() {
+            if (mediaRecorder && isRecording) {
+                mediaRecorder.stop();
+            }
+        }
+
+        document.getElementById('startVideo').addEventListener('click', startVideo);
+        document.getElementById('stopVideo').addEventListener('click', stopVideo);
+        document.getElementById('startAudio').addEventListener('click', startAudio);
+        document.getElementById('stopAudio').addEventListener('click', stopAudio);
+        document.getElementById('record').addEventListener('click', startRecording);
+        document.getElementById('stopRecord').addEventListener('click', stopRecording);
+    </script>
+    <br><br><br><br><br><br><br><br>
+    <center>
+        <a href="index.html">
+            <button id="leaveMeetingButton">
+                Leave Meeting
+                <img src="leave.jpeg" alt="G" style="height: 0.4cm; width: 0.4cm;">
+            </button>
+        </a>
+    </center>
+    
+    <script>
+        const leaveMeetingButton = document.getElementById('leaveMeetingButton');
+
+        leaveMeetingButton.addEventListener('click', () => {
+            videoLibrary.disconnect();
+            window.location.href = '/thankyou.html'; // Replace with your desired URL
+        });
+    </script>
+</body>
+</html>

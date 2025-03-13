@@ -1,0 +1,6 @@
+{
+  "name": "hardhat-project",
+  "dependencies": {
+    "node": "^20.13.0"
+  }
+}
